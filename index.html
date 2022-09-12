@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+ 
+    <!-- CSS: Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- CSS: Bootstrap v-5.3 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Lato:wght@300;700&family=Libre+Baskerville&family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+Lao:wght@300;400;500&family=Nunito:wght@200&family=Playfair+Display:ital@1&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            font-family: 'Noto Sans Lao', sans-serif;
+            background-color: #ccc;
+        }
+
+        /* Responsive */
+        @media (max-width:500px){
+            .fw-normal{
+                font-size: 1.5rem;
+            }
+            .form_overlay{
+                padding: 10px;
+            }
+        }
+    </style>
+
+<body> 
+             <!-- space -->
+                <div class="py-lg-5 py-md-4 py-sm-3 py-2"></div>
+                <div class="row justify-content-center pt-4">
+                    <div class="col-lg-7 col-md-10">
+                        <h3 class="fw-normal text-center mb-5 border-bottom pb-2">ຕິດຕໍ່ກັບທີມງານຊ່ວຍເຫຼືອຂອງພວກເຮົາ</h3>
+ 
+                        <form class="form_overlay" method="POST" accept-charset="UTF-8" autocomplete="off" name="contact"> 
+                            <div class="row g-4">
+                                <div class="col-lg-6">
+                                    <div class="input_overlay">
+                                        <label for="fname" class="lable">ຊື່</label>
+                                        <input type="text" name="Firstname" class="form-control" required autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input_overlay">
+                                        <label for="lname" class="lable">ນາມສະກຸນ</label>
+                                        <input type="text" name="Lastname" class="form-control" required autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input_overlay">
+                                        <label for="email" class="lable">ທີ່ຢູ່ອີເມວ</label>
+                                        <input type="text" name="Email" class="form-control" required autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input_overlay">
+                                        <label for="phone" class="lable">ເບີໂທລະສັບ</label>
+                                        <input type="text" name="Phone" class="form-control" required autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="input_overlay">
+                                        <label for="subject" class="lable">ເລື່ອງ</label>
+                                        <input type="text" name="Subject" class="form-control" required autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="input_overlay textarea">
+                                        <label for="desc" class="lable">ຄໍາອະທິບາຍ</label>
+                                        <textarea name="Description" cols="30" rows="4" class="form-control" required autocomplete="off"></textarea>
+                                    </div>
+                                </div>
+                                 
+                                <div class="col-12 text-end">
+                                <button type="submit" class="btn btn-primary mt-3">ສົ່ງຂໍ້ມູນ</button>
+                                </div>
+                                <p id="demo"></p>
+                            </div>
+                             
+                        </form>
+                    </div>
+                </div>
+ 
+ 
+    </main>
+ 
+ 
+     
+ 
+   <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxinTYvGdjO_aC1nspaf2PSyYBjA_lOd3wkTbzPV5-DxFJFfA4IzgKAfzgmLHHurSfP/exec'
+            const form = document.forms['contact']
+            
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => document.getElementById("demo").innerHTML = "<div class='alert alert-primary' role='alert'><b>Thank You for providing the details, We shall get back to you shortly !</b></div>",contact.reset())
+                .catch(error => console.error('Error!', error.message))
+            })
+    </script>
+ 
+              
+ </body>
+ </html>
